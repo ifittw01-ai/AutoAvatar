@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Noto Sans TC', 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Sora', 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #0b1424;
+  --color-ink-soft: #162033;
+  --color-slate: #334155;
+  --color-mist: #e8edf5;
+  --color-paper: #f4f7fb;
+  --color-line: #d5deeb;
+  --color-accent: #0f9c94;
+  --color-accent-deep: #0b7c76;
+  --color-accent-soft: #d8f3f0;
+  --color-gold: #c9952a;
+  --color-danger: #c23b3b;
+  --color-success: #1f7a4c;
+
+  --shadow-soft: 0 18px 50px rgba(11, 20, 36, 0.12);
+  --shadow-card: 0 10px 30px rgba(11, 20, 36, 0.08);
+  --radius-xl: 1.5rem;
+  --radius-2xl: 1.75rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply m-0 bg-paper font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-6 lg:px-8;
+  }
+
+  .section-pad {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .mark {
+    @apply relative inline-block;
+  }
+
+  .mark::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.08em;
+    height: 0.28em;
+    background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+    z-index: -1;
+    border-radius: 2px;
+  }
+
+  .fade-up {
+    animation: fade-up 0.7s ease both;
+  }
+
+  .float-soft {
+    animation: float-soft 6s ease-in-out infinite;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up,
+  .float-soft {
+    animation: none;
+  }
+}
