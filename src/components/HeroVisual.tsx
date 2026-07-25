@@ -56,6 +56,12 @@ export function HeroVisual() {
             allow="encrypted-media; clipboard-write"
           />
 
+          {/* Instagram embed 無法改內部 DOM，用遮罩隱藏粉絲數／貼文數 */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute z-10 bg-white left-[6.25rem] right-10 top-[4.35rem] h-[3.1rem] sm:left-[6.75rem] sm:right-12 sm:top-[4.5rem] sm:h-[3.35rem]"
+          />
+
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent px-4 pb-4 pt-10 pointer-events-none sm:hidden">
             <a
               href={ig.profileUrl}
