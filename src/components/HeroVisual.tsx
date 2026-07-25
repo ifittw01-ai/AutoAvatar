@@ -1,5 +1,21 @@
-import { ExternalLink, Instagram } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { siteContent } from '../content/siteContent'
+
+function InstagramGlyph({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" />
+    </svg>
+  )
+}
 
 export function HeroVisual() {
   const ig = siteContent.hero.instagram
@@ -12,7 +28,7 @@ export function HeroVisual() {
         <div className="flex items-center justify-between gap-3 border-b border-white/10 bg-white/[0.04] px-4 py-3">
           <div className="flex min-w-0 items-center gap-2.5">
             <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] text-white">
-              <Instagram size={18} aria-hidden />
+              <InstagramGlyph size={18} />
             </span>
             <div className="min-w-0">
               <p className="truncate text-sm font-semibold text-white">{ig.title}</p>
@@ -40,7 +56,6 @@ export function HeroVisual() {
             allow="encrypted-media; clipboard-write"
           />
 
-          {/* Instagram 若阻擋嵌入，仍保留底部可點連結 */}
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent px-4 pb-4 pt-10 pointer-events-none sm:hidden">
             <a
               href={ig.profileUrl}
