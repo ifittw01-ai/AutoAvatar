@@ -43,8 +43,8 @@ jobs:
         run: npm run build
         env:
           VITE_SITE_URL: https://ifittw01-ai.github.io/AutoAvatar/
-          VITE_PAYMENT_MODE: internal-checkout
-          VITE_PAYMENT_PROVIDER: mock
+          VITE_PAYMENT_MODE: qrcode
+          VITE_PAYMENT_PROVIDER: paynow
           VITE_PAYMENT_LINK: ""
           VITE_COURSE_ACCESS_URL: ""
           VITE_SUPPORT_EMAIL: ""

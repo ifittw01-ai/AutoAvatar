@@ -71,12 +71,14 @@ GitHub Pages 無法把 `/checkout` 等子路徑自動回傳 `index.html`。
 
 ## 金流
 
-目前為 **mock / internal-checkout**。  
-正式金流串接位置：
+目前為 **PayNow QR Code** 掃碼付款（結帳頁顯示 QR）。  
+買家掃碼付款後，於結帳頁填寫資料並點「我已完成付款」。
 
-- `src/config/payment.ts`（含 `paymentSuccessUrl` / `paymentCancelledUrl`）
+正式金流／自動對帳後續可再串接於：
+
+- `src/config/payment.ts`
 - `src/lib/payment/paymentService.ts`
-- `src/pages/CheckoutPage.tsx` 的 `#payment-element-slot`
+- `src/pages/CheckoutPage.tsx`
 
 **不得將金流私密金鑰、webhook secret 或信用卡資料放在前端／提交到 GitHub。**
 
@@ -86,8 +88,8 @@ GitHub Pages 無法把 `/checkout` 等子路徑自動回傳 `index.html`。
 
 ```env
 VITE_SITE_URL=https://ifittw01-ai.github.io/AutoAvatar/
-VITE_PAYMENT_MODE=internal-checkout
-VITE_PAYMENT_PROVIDER=mock
+VITE_PAYMENT_MODE=qrcode
+VITE_PAYMENT_PROVIDER=paynow
 VITE_PAYMENT_LINK=
 VITE_COURSE_ACCESS_URL=
 VITE_SUPPORT_EMAIL=

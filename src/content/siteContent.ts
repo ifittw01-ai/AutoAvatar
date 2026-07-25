@@ -454,9 +454,18 @@ export const siteContent = {
     accessMethod: '數位課程・購買後以 Email 提供取用說明',
     digitalGoodsNote:
       '本商品為數位內容。購買完成即開始提供取用資訊；退款規則以正式條款為準。【待替換正式退款政策】',
-    paymentWidgetNote: '安全付款元件將由正式金流服務商載入',
-    paymentProvidersHint: '預留容器：Stripe／Kajabi／PayPal 安全元件',
-    secureNote: '結帳連線經加密處理；本站不會自行收集或儲存完整信用卡資料。',
+    paymentWidgetNote: 'PayNow 掃碼付款',
+    paymentProvidersHint: '請使用銀行 App 或行動支付掃描 QR Code',
+    secureNote:
+      '請以官方 PayNow QR Code 完成付款。本站不會自行收集或儲存信用卡資料。',
+    paynowSteps: [
+      '打開銀行 App／行動支付的掃碼功能',
+      '掃描右側（或下方）PayNow QR Code',
+      '確認金額後完成付款',
+      '回到本頁填寫姓名與 Email，並點選「我已完成付款」',
+    ],
+    confirmPaidLabel: '我已完成付款',
+    confirmPaidHint: '送出後我們會依你留下的 Email 提供課程取用資訊',
   },
 
   paymentSuccess: {

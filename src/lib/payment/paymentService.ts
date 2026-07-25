@@ -1,6 +1,7 @@
 import {
   formatPrice,
   getResolvedPaymentMode,
+  hasPaynowQr,
   paymentConfig,
 } from '../../config/payment'
 import type {
@@ -14,10 +15,8 @@ const SESSION_KEY = 'aa_payment_session'
 /**
  * 統一購買入口判斷。
  *
- * - paymentLink 有值 → 外部結帳（由呼叫端 window.location.assign）
- * - 否則 → 回傳內部路由 path，由 React Router navigate（HashRouter → #/checkout）
- *
- * TODO：串接正式金流 SDK／hosted checkout；信用卡資料只能由金流商安全元件處理。
+ * - paymentLink 有值 → 外部結帳
+ * - 否則 → /checkout（PayNow QR 或內部結帳）
  */
 export function shouldUseExternalPayment(): boolean {
   return (
@@ -32,6 +31,37 @@ export function getExternalPaymentLink(): string {
 
 export function getCheckoutPath(): string {
   return paymentConfig.checkoutPath
+}
+
+/**
+ * 買家確認已完成 PayNow 掃碼付款後呼叫。
+ * 注意：此為買家自行回報，非金流 webhook 自動對帳。
+ */
+export async function confirmPaynowPayment(
+  input: StartPaymentInput,
+): Promise<StartPaymentResult> {
+  await wait(500)
+
+  const orderId = `PN-${Date.now().toString(36).toUpperCase()}`
+  const session: PaymentSession = {
+    orderId,
+    productName: paymentConfig.productName,
+    amount: paymentConfig.salePrice,
+    currency: paymentConfig.currency,
+    buyerEmail: input.buyer.email,
+    buyerName: input.buyer.name,
+    createdAt: new Date().toISOString(),
+    outcome: 'success',
+  }
+
+  saveSession(session)
+
+  return {
+    ok: true,
+    message: '已收到你的付款回報，我們會依 Email 提供後續課程資訊。',
+    session,
+    redirectPath: `${paymentConfig.successPath}?order=${encodeURIComponent(orderId)}`,
+  }
 }
 
 export async function startMockPayment(
@@ -79,11 +109,9 @@ export async function startMockPayment(
   }
 }
 
-/**
- * 正式環境：尚未串接金流時不可假裝成功。
- */
 export function getLiveCheckoutMessage(): string {
   if (import.meta.env.DEV) return ''
+  if (hasPaynowQr() && paymentConfig.provider === 'paynow') return ''
   return '正式付款系統尚待串接'
 }
 

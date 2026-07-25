@@ -9,11 +9,12 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Check, Lock, Shield } from 'lucide-react'
 import { publicAsset } from '../lib/publicAsset'
 import { siteContent } from '../content/siteContent'
-import { formatPrice, paymentConfig } from '../config/payment'
 import {
   getLiveCheckoutMessage,
   startMockPayment,
+  confirmPaynowPayment,
 } from '../lib/payment/paymentService'
+import { formatPrice, hasPaynowQr, paymentConfig } from '../config/payment'
 import type { CheckoutBuyer, PaymentOutcome } from '../lib/payment/types'
 import { Disclaimer } from '../components/Disclaimer'
 import { PendingBadge } from '../components/ui/SectionHeader'
@@ -65,18 +66,24 @@ export function CheckoutPage() {
     if (lock.current) return
     if (!validate()) return
 
-    if (!showMockTools) {
-      setStatus('error')
-      setMessage(liveMessage || '正式付款系統尚待串接')
-      return
-    }
-
     lock.current = true
     setStatus('submitting')
     setMessage('')
 
-    const result = await startMockPayment({ buyer, outcome })
+    const result =
+      outcome === 'success' && hasPaynowQr() && paymentConfig.provider === 'paynow'
+        ? await confirmPaynowPayment({ buyer, outcome })
+        : showMockTools
+          ? await startMockPayment({ buyer, outcome })
+          : null
+
     lock.current = false
+
+    if (!result) {
+      setStatus('error')
+      setMessage(liveMessage || '正式付款系統尚待串接')
+      return
+    }
 
     if (result.redirectPath) {
       navigate(result.redirectPath)
@@ -249,19 +256,37 @@ export function CheckoutPage() {
               </Field>
             </div>
 
-            <div className="mt-5 rounded-2xl border border-dashed border-line bg-mist/60 p-4">
+            <div className="mt-5 rounded-2xl border border-line bg-mist/40 p-4 sm:p-5">
               <p className="flex items-center gap-2 text-sm font-semibold text-ink">
                 <Lock size={16} className="text-accent" />
-                {checkout.paymentWidgetNote}
+                {paymentConfig.paynowLabel}
               </p>
-              <div
-                id="payment-element-slot"
-                className="mt-3 flex min-h-[88px] items-center justify-center rounded-xl border border-line bg-white px-3 text-center text-xs text-slate"
-                data-providers="stripe,kajabi,paypal"
-              >
-                {checkout.paymentProvidersHint}
-              </div>
-              <p className="mt-2 flex items-start gap-2 text-xs text-slate">
+              <p className="mt-2 text-sm leading-relaxed text-slate">
+                {paymentConfig.paynowHint}
+              </p>
+
+              {hasPaynowQr() ? (
+                <div className="mt-4 flex flex-col items-center rounded-2xl border border-line bg-white p-5">
+                  <img
+                    src={publicAsset(paymentConfig.paynowQrImage)}
+                    alt="PayNow 付款 QR Code"
+                    className="h-auto w-full max-w-[220px] object-contain"
+                    width={220}
+                    height={220}
+                  />
+                  <p className="mt-3 text-center text-xs text-slate">
+                    金額：{formatPrice(paymentConfig.salePrice)}・{paymentConfig.paymentType}
+                  </p>
+                </div>
+              ) : null}
+
+              <ol className="mt-4 list-decimal space-y-1.5 pl-5 text-xs leading-relaxed text-slate">
+                {checkout.paynowSteps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+
+              <p className="mt-3 flex items-start gap-2 text-xs text-slate">
                 <Shield size={14} className="mt-0.5 shrink-0 text-accent" />
                 {checkout.secureNote}
               </p>
@@ -274,26 +299,30 @@ export function CheckoutPage() {
               </span>
             </div>
 
-            {status === 'error' || liveMessage ? (
+            {status === 'error' ? (
               <p className="mt-4 rounded-xl border border-danger/20 bg-danger/5 px-3 py-2 text-sm text-danger" role="alert">
-                {message || liveMessage}
+                {message}
               </p>
             ) : null}
 
+            <button
+              type="submit"
+              disabled={status === 'submitting'}
+              className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-accent px-6 text-base font-semibold text-white transition hover:bg-accent-deep disabled:opacity-60"
+            >
+              {status === 'submitting' ? '送出中…' : checkout.confirmPaidLabel}
+            </button>
+            <p className="mt-2 text-center text-xs text-slate">
+              {checkout.confirmPaidHint}
+            </p>
+
             {showMockTools ? (
-              <div className="mt-5 space-y-2">
-                <p className="text-xs text-gold">開發／mock 模式：可測試三種結果（不會真實扣款）</p>
-                <button
-                  type="submit"
-                  disabled={status === 'submitting'}
-                  className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-accent px-6 text-base font-semibold text-white transition hover:bg-accent-deep disabled:opacity-60"
-                >
-                  {status === 'submitting' ? '處理中…' : '模擬付款成功'}
-                </button>
+              <div className="mt-4 space-y-2 border-t border-line pt-4">
+                <p className="text-xs text-gold">開發測試（不會真實扣款）</p>
                 <button
                   type="button"
                   disabled={status === 'submitting'}
-                  className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-line bg-white px-6 text-base font-semibold text-ink transition hover:border-accent disabled:opacity-60"
+                  className="inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-line bg-white px-6 text-sm font-semibold text-ink transition hover:border-accent disabled:opacity-60"
                   onClick={() => pay('failed')}
                 >
                   模擬付款失敗
@@ -301,21 +330,13 @@ export function CheckoutPage() {
                 <button
                   type="button"
                   disabled={status === 'submitting'}
-                  className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-line bg-white px-6 text-base font-semibold text-ink transition hover:border-accent disabled:opacity-60"
+                  className="inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-line bg-white px-6 text-sm font-semibold text-ink transition hover:border-accent disabled:opacity-60"
                   onClick={() => pay('cancelled')}
                 >
                   模擬取消付款
                 </button>
               </div>
-            ) : (
-              <button
-                type="submit"
-                disabled={status === 'submitting'}
-                className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-accent px-6 text-base font-semibold text-white transition hover:bg-accent-deep disabled:opacity-60"
-              >
-                完成購買
-              </button>
-            )}
+            ) : null}
           </form>
         </aside>
       </main>
