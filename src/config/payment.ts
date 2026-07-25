@@ -21,7 +21,7 @@ export const paymentConfig = {
   productName: 'AI 分身實戰課程',
   salePrice: 2700,
   originalPrice: 31200,
-  paymentType: '最多24期分期付款・PayNow 掃碼付款',
+  paymentType: '最多24期分期付款( 月繳120 )・PayNow 掃碼付款',
   paymentLink: import.meta.env.VITE_PAYMENT_LINK?.trim() || '',
   courseAccessUrl: import.meta.env.VITE_COURSE_ACCESS_URL?.trim() || '',
   supportEmail: import.meta.env.VITE_SUPPORT_EMAIL?.trim() || '',
@@ -29,7 +29,7 @@ export const paymentConfig = {
   paynowQrImage: 'images/paynow-qrcode.png',
   paynowLabel: 'PayNow 掃碼付款',
   paynowHint:
-    '請使用銀行 App／行動支付掃描下方 QR Code 完成付款。付款後填寫聯絡資料並送出，我們會依 Email 提供課程資訊。',
+    '請使用銀行 App／行動支付掃描下方 QR Code 完成付款。付款後填寫聯絡資料並送出，我們會依 Email 提供課程資訊。(收款學院 : 箴言教育管理學院)',
   /** GitHub Pages 正式站根網址（含尾端斜線） */
   siteUrl: normalizeSiteUrl(
     import.meta.env.VITE_SITE_URL?.trim() || DEFAULT_SITE_URL,
