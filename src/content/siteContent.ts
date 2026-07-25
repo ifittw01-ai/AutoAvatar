@@ -233,7 +233,7 @@ export const siteContent = {
         description:
           '把建立流程拆成新手跟得上的步驟，讓你在短時間內走出「第一次做完」的關鍵里程碑。',
         items: ['角色起點設定', '生成步驟拆解', '新手常見錯誤提醒'],
-        valueAmount: 67,
+        valueAmount: 6700,
         enabled: true,
         replaceHint: true,
       },
@@ -245,7 +245,7 @@ export const siteContent = {
         description:
           '對準「AI 看起來很假／每次都不一樣」的痛點，建立可長期使用的角色一致性。',
         items: ['一致性檢查重點', '可重複的描述結構', '成品篩選原則'],
-        valueAmount: 47,
+        valueAmount: 4700,
         enabled: true,
         replaceHint: true,
       },
@@ -257,7 +257,7 @@ export const siteContent = {
         description:
           '這是把分身用在品牌與產品內容時很關鍵的一環：角色不變，場景與造型可變。',
         items: ['造型切換邏輯', '場景搭配思路', '品牌內容應用方向'],
-        valueAmount: 47,
+        valueAmount: 4700,
         enabled: true,
         replaceHint: true,
       },
@@ -269,7 +269,7 @@ export const siteContent = {
         description:
           '把分身從「單次作品」變成「可經營的內容資產」，強調流程而非零散技巧。',
         items: ['素材產出節奏', '檔案與設定管理', '從圖到內容應用的銜接'],
-        valueAmount: 27,
+        valueAmount: 2700,
         enabled: true,
         replaceHint: true,
       },
@@ -281,7 +281,7 @@ export const siteContent = {
         description:
           '對齊「不必同時訂閱大量工具」的訊息：先把主流程跑通，再決定是否擴充。',
         items: ['核心工具選擇原則', '避免工具焦慮', '新手起步路徑'],
-        valueAmount: 27,
+        valueAmount: 2700,
         enabled: true,
         replaceHint: true,
       },
@@ -293,14 +293,14 @@ export const siteContent = {
         description:
           '整理如何把 AI 分身放進內容經營與產品溝通（版面暫用價值；正式內容請替換）。',
         items: ['應用場景對位', '內容與產品銜接', '執行優先順序'],
-        valueAmount: 97,
+        valueAmount: 9700,
         enabled: true,
         replaceHint: true,
       },
     ] as CurriculumModule[],
     totalValueLabel: '課程總價值',
-    /** 與模組加總一致：67+47+47+27+27+97 = 312 */
-    totalValueAmount: 312,
+    /** 與模組加總一致：6700+4700+4700+2700+2700+9700 = 31200 */
+    totalValueAmount: 31200,
   },
 
   pricing: {

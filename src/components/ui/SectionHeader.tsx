@@ -6,10 +6,10 @@ interface PendingBadgeProps {
   children?: ReactNode
 }
 
-/** 小型「待替換」標記，不破壞銷售頁視覺 */
+/** 小型「實戰」標記，不破壞銷售頁視覺 */
 export function PendingBadge({
   show = true,
-  children = '待替換',
+  children = '實戰',
 }: PendingBadgeProps) {
   if (!show || !showReplaceHints) return null
   return (

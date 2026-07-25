@@ -8,7 +8,7 @@ import {
 import { formatPrice, paymentConfig } from '../../config/payment'
 
 interface PurchaseCTAProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'> {
-  /** 按鈕主文案（不含價格）；會自動加上 －$27 */
+  /** 按鈕主文案（不含價格）；會自動加上 －NT$2700 */
   label: string
   /** 若為 false，不自動附加價格 */
   showPrice?: boolean
