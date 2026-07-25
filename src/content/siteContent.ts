@@ -41,16 +41,16 @@ export interface FaqItem {
 
 export const siteContent = {
   brand: {
-    name: 'AI 分身實戰學院',
+    name: 'AI 分身實戰電子課程',
     shortName: 'AI Avatar Lab',
-    courseName: '第一個 AI 分身實戰課',
+    courseName: '第一個 AI 分身實戰電子課程',
     tagline: '用 AI 分身持續產出內容，不必本人出鏡',
-    logoText: 'AI 分身實戰學院',
+    logoText: 'AI 分身實戰電子課程',
     replaceHint: true,
   },
 
   seo: {
-    title: 'AI 分身實戰課｜約一小時完成你的第一個可一致產出分身',
+    title: 'AI 分身實戰電子課程｜完成你的第一個可一致產出分身的完整流程',
     description:
       '學習如何建立自己的 AI 分身、維持角色一致、變換服裝與場景，並應用於品牌與產品內容。適合不想露臉、沒有昂貴器材、也沒有 AI 經驗的新手。',
     canonical: '',
@@ -59,7 +59,7 @@ export const siteContent = {
 
   announcement: {
     enabled: true,
-    text: '限時特惠 $27 USD — 一次付清帶走完整課程',
+    text: '限時特惠 NT$2700 — 最多24期分期付款帶走完整課程',
     ctaLabelKey: 'announcement',
     replaceHint: true,
   },
@@ -86,7 +86,7 @@ export const siteContent = {
 
   hero: {
     eyebrow: 'AI 分身內容製作課程',
-    title: '在約一小時內，完成你的第一個可對外使用的 AI 分身',
+    title: '快速完成你的第一個可對外使用的 AI 分身',
     subtitle:
       '從零建立一個外型穩定、能換裝換場景、可應用在品牌與產品內容的 AI 分身。就算你沒碰過 AI 工具、也不想本人露臉，也能照著流程做出來。',
     trustPoints: [
@@ -96,8 +96,8 @@ export const siteContent = {
       '重點是完整流程，不是東拼西湊工具',
       '完成後帶走可重複執行的製作方法',
     ],
-    secondaryNote: '一次付清・立即進入結帳流程',
-    visualAlt: 'Instagram 帳號 @ig.twtp008 預覽',
+    secondaryNote: '立即進入結帳流程',
+    visualAlt: 'Instagram 帳號預覽',
     instagram: {
       handle: 'ig.twtp008',
       profileUrl: 'https://www.instagram.com/ig.twtp008/',
