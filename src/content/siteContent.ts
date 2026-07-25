@@ -97,7 +97,13 @@ export const siteContent = {
       '完成後帶走可重複執行的製作方法',
     ],
     secondaryNote: '一次付清・立即進入結帳流程',
-    visualAlt: 'AI 分身內容工作台示意：角色卡、服裝場景切換與內容發布介面',
+    visualAlt: 'Instagram 帳號 @ig.twtp008 預覽',
+    instagram: {
+      handle: 'ig.twtp008',
+      profileUrl: 'https://www.instagram.com/ig.twtp008/',
+      embedUrl: 'https://www.instagram.com/ig.twtp008/embed',
+      title: 'Instagram · @ig.twtp008',
+    },
   },
 
   proof: {
