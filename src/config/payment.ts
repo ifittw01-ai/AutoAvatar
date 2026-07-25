@@ -21,7 +21,7 @@ export const paymentConfig = {
   productName: 'AI 分身實戰課程',
   salePrice: 2700,
   originalPrice: 31200,
-  paymentType: '一次付清・PayNow 掃碼付款',
+  paymentType: '最多24期分期付款・PayNow 掃碼付款',
   paymentLink: import.meta.env.VITE_PAYMENT_LINK?.trim() || '',
   courseAccessUrl: import.meta.env.VITE_COURSE_ACCESS_URL?.trim() || '',
   supportEmail: import.meta.env.VITE_SUPPORT_EMAIL?.trim() || '',

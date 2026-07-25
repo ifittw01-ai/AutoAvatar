@@ -305,7 +305,7 @@ export const siteContent = {
 
   pricing: {
     courseName: '第一個 AI 分身實戰課',
-    paymentType: '一次付清。立即取得完整課程。',
+    paymentType: '最多24期分期付款。立即取得完整課程。',
     accessNote: '購買後依 Email 提供課程取用說明【觀看期限待正式確認】',
     updateNote: '更新政策待正式確認',
     refundNote: '數位商品退款規則以結帳頁說明與正式條款為準',
@@ -412,7 +412,7 @@ export const siteContent = {
       },
       {
         question: '課程是一次付費還是訂閱？',
-        answer: '一次付清。沒有月費訂閱。【觀看期限與更新政策待正式確認】',
+        answer: '最多24期分期付款。沒有月費訂閱。【觀看期限與更新政策待正式確認】',
         replaceHint: true,
       },
       {
