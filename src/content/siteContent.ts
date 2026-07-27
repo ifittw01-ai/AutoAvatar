@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 全站文案與資料集中設定檔。
  * 價格數字目前為參考站暫用版面資料，正式上線前請一次替換。
  * 小型「待替換」標記由 showReplaceHints 控制，不隱藏整區。
@@ -54,7 +54,7 @@ export const siteContent = {
     description:
       '學習如何建立自己的 AI 分身、維持角色一致、變換服裝與場景，並應用於品牌與產品內容。適合不想露臉、沒有昂貴器材、也沒有 AI 經驗的新手。',
     canonical: 'https://ifittw01-ai.github.io/AutoAvatar/',
-    ogImage: 'data/share-cover.png?v=20260727a',
+    ogImage: 'data/share-cover.png?v=20260727b',
   },
 
   announcement: {
