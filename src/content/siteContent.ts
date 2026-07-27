@@ -50,11 +50,11 @@ export const siteContent = {
   },
 
   seo: {
-    title: 'AI 分身實做課程｜完成你的第一個可一致產出分身的完整流程',
+    title: '用 AI 分身持續產出內容，把角色變成可經營的資產',
     description:
       '學習如何建立自己的 AI 分身、維持角色一致、變換服裝與場景，並應用於品牌與產品內容。適合不想露臉、沒有昂貴器材、也沒有 AI 經驗的新手。',
-    canonical: '',
-    ogImage: 'images/og-share.svg',
+    canonical: 'https://ifittw01-ai.github.io/AutoAvatar/',
+    ogImage: 'data/share-cover.png?v=20260727a',
   },
 
   announcement: {
@@ -409,11 +409,6 @@ export const siteContent = {
       {
         question: '課程是一次付費還是訂閱？',
         answer: '完全免學費，我們是 AI 俱樂部',
-      },
-      {
-        question: '是否保證可以獲利？',
-        answer:
-          '不保證。課程提供的是 AI 分身製作與內容應用的教育方法；流量、成交與收入會受定位、作品品質、市場與執行影響，成果因人而異。',
       },
     ] as FaqItem[],
   },
