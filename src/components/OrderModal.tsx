@@ -234,7 +234,7 @@ export function OrderModal() {
             <div className="modal-header">
               <h2 data-i18n="modal-title">🎉 立即獲取優惠</h2>
               <p className="modal-subtitle" data-i18n="modal-subtitle">
-                填寫資料，開始您的AI自媒體創業之旅
+                填寫資料，加入 AI 俱樂部
               </p>
             </div>
 
