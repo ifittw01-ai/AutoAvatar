@@ -60,6 +60,7 @@ export function Header() {
           ))}
           <PurchaseCTA
             label={siteContent.ctaLabels.header}
+            showPrice={false}
             className="min-h-11 px-5 text-sm"
           />
         </nav>
@@ -93,6 +94,7 @@ export function Header() {
               fullWidth
               className="mt-2"
               label={siteContent.ctaLabels.header}
+              showPrice={false}
               onClick={() => setOpen(false)}
             />
           </nav>

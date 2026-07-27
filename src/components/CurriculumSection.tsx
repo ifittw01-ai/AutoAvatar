@@ -1,5 +1,5 @@
 import { siteContent } from '../content/siteContent'
-import { formatPrice, paymentConfig } from '../config/payment'
+import { formatPrice } from '../config/payment'
 import { SectionHeader, PendingBadge } from './ui/SectionHeader'
 import { OfferCard } from './OfferCard'
 import { Disclaimer } from './Disclaimer'
@@ -62,11 +62,8 @@ export function CurriculumSection() {
           <p className="font-display mt-1 text-3xl font-extrabold text-ink sm:text-4xl">
             {formatPrice(curriculum.totalValueAmount)}
           </p>
-          <p className="mt-2 text-sm text-slate">
-            今日優惠價{' '}
-            <span className="font-semibold text-accent-deep">
-              {formatPrice(paymentConfig.salePrice)}
-            </span>
+          <p className="font-display mt-4 text-[2.5rem] leading-tight font-extrabold text-[#e11d48] sm:text-[3.5rem] md:text-[4.375rem]">
+            憑此網站報名只需場地費NT$200
           </p>
         </div>
 

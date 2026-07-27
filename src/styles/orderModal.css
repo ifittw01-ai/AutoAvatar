@@ -1,0 +1,388 @@
+/* AI-PT 報名彈窗樣式（scoped 於 #orderModal，避免污染銷售頁） */
+#orderModal {
+  --primary-color: #ff6b35;
+  --secondary-color: #f7931e;
+  --success-color: #28a745;
+  --light-bg: #eaf3ff;
+  --text-dark: #2c3e50;
+  --text-light: #6c757d;
+  --white: #ffffff;
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-warm: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-sizing: border-box;
+}
+
+#orderModal *,
+#orderModal *::before,
+#orderModal *::after {
+  box-sizing: border-box;
+}
+
+#orderModal.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  animation: orderModalFadeIn 0.3s ease;
+}
+
+@keyframes orderModalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#orderModal.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#orderModal .modal-content {
+  background: var(--white);
+  border-radius: 20px;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  animation: orderModalSlideUp 0.4s ease;
+  color: var(--text-dark);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei',
+    '微軟正黑體', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+@keyframes orderModalSlideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#orderModal .close-modal {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 35px;
+  font-weight: 300;
+  color: var(--text-light);
+  cursor: pointer;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  line-height: 1;
+  padding: 0;
+}
+
+#orderModal .close-modal:hover {
+  background: var(--light-bg);
+  color: var(--text-dark);
+  transform: rotate(90deg);
+}
+
+#orderModal .modal-header {
+  text-align: center;
+  padding: 40px 40px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--white);
+  border-radius: 20px 20px 0 0;
+}
+
+#orderModal .modal-header h2 {
+  font-size: 2rem;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+#orderModal .modal-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin: 0;
+}
+
+#orderModal .order-form-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+#orderModal .order-form-main {
+  padding: 40px;
+  max-width: 700px;
+  width: 100%;
+}
+
+#orderModal .order-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#orderModal .form-section {
+  margin-bottom: 30px;
+}
+
+#orderModal .form-section h3 {
+  font-size: 1.3rem;
+  margin: 0 0 20px;
+  color: var(--text-dark);
+}
+
+#orderModal .form-group {
+  margin-bottom: 20px;
+}
+
+#orderModal .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+#orderModal .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+#orderModal .required {
+  color: #e74c3c;
+}
+
+#orderModal .form-group input,
+#orderModal .form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: var(--white);
+  color: var(--text-dark);
+}
+
+#orderModal .form-group input:focus,
+#orderModal .form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#orderModal .form-group input::placeholder {
+  color: #aaa;
+}
+
+#orderModal .form-field-hidden {
+  display: none !important;
+}
+
+#orderModal .option-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+#orderModal .option-cards--country {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 420px) {
+  #orderModal .option-cards--country {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+#orderModal .option-card {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: var(--white);
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-family: inherit;
+  line-height: 1.4;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  color: var(--text-dark);
+}
+
+#orderModal .option-card:hover {
+  border-color: #667eea;
+}
+
+#orderModal .option-card.selected {
+  border-color: #667eea;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.08));
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+  font-weight: 600;
+}
+
+#orderModal .option-cards.is-disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+#orderModal .option-cards-placeholder {
+  color: #999;
+  font-size: 0.9rem;
+  padding: 10px 2px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+#orderModal .option-cards--region .option-card {
+  text-align: left;
+}
+
+#orderModal .option-cards--error {
+  padding: 4px;
+  border-radius: 12px;
+  box-shadow: 0 0 0 2px #e74c3c;
+}
+
+#orderModal #submitBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+#orderModal .form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+#orderModal .submit-info-btn,
+#orderModal .submit-order-btn {
+  width: 100%;
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  padding: 18px 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+#orderModal .submit-info-btn:hover:not(:disabled),
+#orderModal .submit-order-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+#orderModal .submit-info-btn:disabled,
+#orderModal .submit-order-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#orderModal .secure-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+#orderModal .success-page {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#orderModal .success-close-btn {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+@media (max-width: 768px) {
+  #orderModal.modal.show {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  #orderModal .modal-content {
+    max-height: 95vh;
+    margin: 10px 0;
+  }
+
+  #orderModal .modal-header {
+    padding: 30px 20px 20px;
+  }
+
+  #orderModal .modal-header h2 {
+    font-size: 1.5rem;
+  }
+
+  #orderModal .modal-subtitle {
+    font-size: 1rem;
+  }
+
+  #orderModal .close-modal {
+    right: 10px;
+    top: 10px;
+    font-size: 28px;
+    width: 35px;
+    height: 35px;
+  }
+
+  #orderModal .order-form-main {
+    padding: 25px 20px;
+  }
+
+  #orderModal .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  #orderModal .submit-info-btn,
+  #orderModal .submit-order-btn {
+    padding: 16px 25px;
+    font-size: 1.1rem;
+  }
+
+  #orderModal .form-buttons {
+    gap: 12px;
+  }
+}

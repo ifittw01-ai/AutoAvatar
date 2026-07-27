@@ -1,7 +1,7 @@
 import { useId, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { siteContent } from '../content/siteContent'
-import { SectionHeader, PendingBadge } from './ui/SectionHeader'
+import { SectionHeader } from './ui/SectionHeader'
 import { PurchaseCTA } from './ui/PurchaseCTA'
 
 export function FAQSection() {
@@ -16,7 +16,7 @@ export function FAQSection() {
         <div>
           <SectionHeader eyebrow={faq.eyebrow} title={faq.title} />
           <div className="mt-8 hidden lg:block">
-            <PurchaseCTA label={ctaLabels.faq} />
+            <PurchaseCTA label={ctaLabels.faq} showPrice={false} />
           </div>
         </div>
 
@@ -39,9 +39,8 @@ export function FAQSection() {
                   aria-controls={panelId}
                   onClick={() => setOpenIndex(open ? null : index)}
                 >
-                  <span className="flex flex-wrap items-center gap-2 font-display text-base font-semibold text-ink">
+                  <span className="font-display text-base font-semibold text-ink">
                     {item.question}
-                    <PendingBadge show={item.replaceHint} />
                   </span>
                   <ChevronDown
                     className={`shrink-0 text-slate transition ${open ? 'rotate-180' : ''}`}
@@ -64,7 +63,7 @@ export function FAQSection() {
         </div>
 
         <div className="lg:hidden">
-          <PurchaseCTA fullWidth label={ctaLabels.faq} />
+          <PurchaseCTA fullWidth label={ctaLabels.faq} showPrice={false} />
         </div>
       </div>
     </section>

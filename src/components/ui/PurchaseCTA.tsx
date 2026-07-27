@@ -1,14 +1,9 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
-import { useNavigate } from 'react-router-dom'
-import {
-  getCheckoutPath,
-  getExternalPaymentLink,
-  shouldUseExternalPayment,
-} from '../../lib/payment/paymentService'
 import { formatPrice, paymentConfig } from '../../config/payment'
+import { useOrderModal } from '../../context/OrderModalContext'
 
 interface PurchaseCTAProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'> {
-  /** 按鈕主文案（不含價格）；會自動加上 －NT$2700 */
+  /** 按鈕主文案（不含價格）；若 showPrice 為 true 會自動加上 －NT$2700 */
   label: string
   /** 若為 false，不自動附加價格 */
   showPrice?: boolean
@@ -28,8 +23,7 @@ const variants = {
 }
 
 /**
- * 全站統一購買 CTA。
- * paymentLink 有值 → 外部結帳；否則 → React Router /checkout（HashRouter → #/checkout）
+ * 全站統一報名 CTA → 開啟 AI-PT 同款 orderModal（Google Sheets 報名）
  */
 export function PurchaseCTA({
   label,
@@ -42,7 +36,7 @@ export function PurchaseCTA({
   onClick,
   ...props
 }: PurchaseCTAProps) {
-  const navigate = useNavigate()
+  const { openModal } = useOrderModal()
   const text =
     children ??
     (showPrice ? `${label}－${formatPrice(paymentConfig.salePrice)}` : label)
@@ -60,11 +54,7 @@ export function PurchaseCTA({
         .join(' ')}
       onClick={() => {
         onClick?.()
-        if (shouldUseExternalPayment()) {
-          window.location.assign(getExternalPaymentLink())
-          return
-        }
-        navigate(getCheckoutPath())
+        openModal()
       }}
       {...props}
     >

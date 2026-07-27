@@ -46,7 +46,7 @@ export function ObjectionSection() {
           </p>
           <p className="mt-4 text-base leading-relaxed text-white/75">{objections.closing}</p>
           <div className="mt-6">
-            <PurchaseCTA label={ctaLabels.objection} />
+            <PurchaseCTA label={ctaLabels.objection} showPrice={false} />
           </div>
         </div>
       </div>

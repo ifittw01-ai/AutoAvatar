@@ -1,5 +1,4 @@
 import { siteContent } from '../content/siteContent'
-import { formatPrice, paymentConfig } from '../config/payment'
 import { PurchaseCTA } from './ui/PurchaseCTA'
 
 export function FinalCTA() {
@@ -31,10 +30,9 @@ export function FinalCTA() {
         </ul>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <PurchaseCTA label={ctaLabels.final} />
-          <p className="text-sm text-white/55">
-            今日優惠價 {formatPrice(paymentConfig.salePrice)}・
-            {paymentConfig.paymentType}
+          <PurchaseCTA label={ctaLabels.final} showPrice={false} />
+          <p className="font-display text-[2.5rem] leading-tight font-extrabold text-[#e11d48] sm:text-[3.5rem] md:text-[4.375rem]">
+            憑此網站報名只需場地費NT$200
           </p>
         </div>
       </div>

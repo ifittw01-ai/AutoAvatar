@@ -41,16 +41,16 @@ export interface FaqItem {
 
 export const siteContent = {
   brand: {
-    name: 'AI 分身實戰電子課程',
+    name: 'AI 俱樂部',
     shortName: 'AI Avatar Lab',
-    courseName: '第一個 AI 分身實戰電子課程',
+    courseName: '第一個 AI 分身實戰做課程',
     tagline: '用 AI 分身持續產出內容，不必本人出鏡',
-    logoText: 'AI 分身實戰電子課程',
+    logoText: 'AI 俱樂部',
     replaceHint: true,
   },
 
   seo: {
-    title: 'AI 分身實戰電子課程｜完成你的第一個可一致產出分身的完整流程',
+    title: 'AI 分身實做課程｜完成你的第一個可一致產出分身的完整流程',
     description:
       '學習如何建立自己的 AI 分身、維持角色一致、變換服裝與場景，並應用於品牌與產品內容。適合不想露臉、沒有昂貴器材、也沒有 AI 經驗的新手。',
     canonical: '',
@@ -59,7 +59,7 @@ export const siteContent = {
 
   announcement: {
     enabled: true,
-    text: '限時特惠 NT$2700 — 最多24期分期付款( 月繳120 )帶走完整課程',
+    text: '限時免費體驗',
     ctaLabelKey: 'announcement',
     replaceHint: true,
   },
@@ -69,23 +69,23 @@ export const siteContent = {
     { id: 'outcomes', label: '課程成果', href: '#outcomes' },
     { id: 'curriculum', label: '課程內容', href: '#curriculum' },
     { id: 'faq', label: '常見問題', href: '#faq' },
-    { id: 'pricing', label: '立即購買', href: '#pricing' },
+    { id: 'pricing', label: '立即報名', href: '#pricing' },
   ],
 
   ctaLabels: {
-    announcement: '立即取得課程',
+    announcement: '立即報名',
     hero: '打造我的第一個AI分身',
     proof: '我想開始建立AI分身',
     objection: '教我完成專屬AI角色',
     offer: '這正是我需要的',
-    faq: '立即取得完整課程',
-    final: '立即取得完整課程',
-    sticky: '立即取得課程',
-    header: '立即購買',
+    faq: '立即報名',
+    final: '立即報名',
+    sticky: '立即報名',
+    header: '立即報名',
   },
 
   hero: {
-    eyebrow: 'AI 分身內容製作課程',
+    eyebrow: 'AI 分身實做課程',
     title: '快速完成你的第一個可對外使用的 AI 分身',
     subtitle:
       '從零建立一個外型穩定、能換裝換場景、可應用在品牌與產品內容的 AI 分身。就算你沒碰過 AI 工具、也不想本人露臉，也能照著流程做出來。',
@@ -96,43 +96,42 @@ export const siteContent = {
       '重點是完整流程，不是東拼西湊工具',
       '完成後帶走可重複執行的製作方法',
     ],
-    secondaryNote: '立即進入結帳流程',
-    visualAlt: 'Instagram 帳號預覽',
+    secondaryNote: 'AI 俱樂部',
+    visualAlt: 'AI 分身作品拼貼：同一角色在不同服裝與場景',
     instagram: {
       handle: 'ig.twtp008',
       profileUrl: 'https://www.instagram.com/ig.twtp008/',
       embedUrl: 'https://www.instagram.com/ig.twtp008/embed',
       title: 'Instagram · @ig.twtp008',
+      galleryImage: 'images/avatar-gallery.png',
     },
   },
 
   proof: {
     enabled: true,
-    eyebrow: '成果證明',
+    eyebrow: 'AI 俱樂部',
     title: '用 AI 分身持續產出內容，把角色變成可經營的資產',
-    subtitle:
-      '以下為版面占位成果指標。正式上線前請替換成可公開的真實案例、產出數據或應用成果（請勿使用他人後台截圖）。',
+    subtitle: '',
     replaceHint: true,
     highlights: [
       {
         label: '內容產出節奏',
         value: '可重複流程',
-        note: '【待替換】真實產出數據／案例說明',
+        note: '',
       },
       {
         label: '應用場景',
         value: '品牌／產品',
-        note: '【待替換】實際應用類型',
+        note: '',
       },
       {
         label: '學習門檻',
         value: '新手可跟做',
-        note: '【待替換】完成時間或學員完成率',
+        note: '',
       },
     ],
     body: [
       '很多人以為做內容一定要本人露臉、拍片、買器材。這堂課要證明的是另一條路：先建立穩定的 AI 分身，再把角色用在品牌與產品內容。',
-      '正式資料到位後，此區可換成真實後台數據、作品牆或案例時間軸。',
     ],
   },
 
@@ -306,7 +305,7 @@ export const siteContent = {
   pricing: {
     courseName: '第一個 AI 分身實戰課',
     paymentType: '最多24期分期付款( 月繳120 )。立即取得完整課程。',
-    accessNote: '購買後依 Email 提供課程取用說明【觀看期限待正式確認】',
+    accessNote: '報名後會收到報名成功 email，請留正確 email',
     updateNote: '更新政策待正式確認',
     refundNote: '數位商品退款規則以結帳頁說明與正式條款為準',
     includes: [
@@ -316,54 +315,53 @@ export const siteContent = {
       '精簡工具路徑與品牌內容應用方向',
       '加碼：分身內容變現路徑整理',
     ],
-    footnote: '價格為暫用版面數字，正式上線前可於 payment 設定一次替換。',
   },
 
   testimonials: [
     {
-      name: '學員 A【待替換】',
+      name: '學員 A',
       role: '內容創作者／自由工作者',
-      photo: '',
-      headline: '終於不用再怕露臉做內容',
+      photo: 'images/testimonial-a.png',
+      headline: '終於不用再勉強自己露臉做內容',
       problem: '想做副業卻極度抗拒出鏡',
       result: '完成專屬 AI 分身，開始產出不露臉內容',
       quote:
-        '我一直想做內容，但真的很怕面對鏡頭。照著流程做出自己的 AI 分身後，終於可以把心力放在內容本身，而不是糾結要不要露臉。',
+        '我一直很想經營自己的內容，但每次一想到要面對鏡頭，就會開始緊張、退縮。現在的我，終於可以把心力放在內容本身',
       resultMetric: '【待替換：具體成果數字】',
       socialHandle: '@handle_a',
       authorized: true,
       showVerifiedBadge: false,
-      replaceHint: true,
+      replaceHint: false,
     },
     {
-      name: '學員 B【待替換】',
+      name: '學員 B',
       role: '品牌經營者',
-      photo: '',
-      headline: '當天就做出可用的第一個分身',
+      photo: 'images/testimonial-b.png',
+      headline: '當天就做出第一個能用的 AI 分身',
       problem: '工具太多、流程太散，學了卻做不出來',
       result: '當天完成第一個穩定角色',
       quote:
-        '以前買過很多工具課，聽完還是不知道怎麼做出一致的角色。這次跟著步驟操作，當天就做出第一個能用的 AI 分身，省下大量摸索時間。',
+        '這次跟著清楚的步驟一步步操作，當天就完成了第一個真正能使用的 AI 分身。不用再到處找教學、反覆試錯，真的省下了很多自己摸索的時間。',
       resultMetric: '【待替換：完成時間／應用結果】',
       socialHandle: '@handle_b',
       authorized: true,
       showVerifiedBadge: false,
-      replaceHint: true,
+      replaceHint: false,
     },
     {
-      name: '學員 C【待替換】',
+      name: '學員 C',
       role: '一人事業／產品銷售',
-      photo: '',
-      headline: '把時間從拍攝剪輯解放出來',
+      photo: 'images/testimonial-c.png',
+      headline: '終於把時間從拍攝和剪輯中解放出來',
       problem: '拍攝與剪輯吃掉太多時間',
       result: '用分身承接畫面，專注內容與產品',
       quote:
-        '我不排斥做內容，但拍攝和剪輯太耗時。有了可一致使用的 AI 分身後，我可以把精力放在產品與文案，畫面呈現交給角色流程去跑。',
+        '現在做內容不再需要耗掉大半天，也終於能把更多時間，放在真正重要的事情上。',
       resultMetric: '【待替換：節省時間／產出量】',
       socialHandle: '@handle_c',
       authorized: true,
       showVerifiedBadge: false,
-      replaceHint: true,
+      replaceHint: false,
     },
   ] as Testimonial[],
 
@@ -372,7 +370,7 @@ export const siteContent = {
   },
 
   faq: {
-    eyebrow: '購買前常見疑問',
+    eyebrow: '',
     title: '你可能正在想這些事',
     items: [
       {
@@ -393,7 +391,6 @@ export const siteContent = {
       {
         question: '我需要懂英文嗎？',
         answer: '課程以繁體中文說明為主。【介面語言細節待正式確認】',
-        replaceHint: true,
       },
       {
         question: '我需要購買很多工具嗎？',
@@ -403,7 +400,6 @@ export const siteContent = {
       {
         question: '手機可以操作嗎？',
         answer: '部分步驟可用手機完成；為求穩定，建議使用電腦操作主要流程。【待正式確認】',
-        replaceHint: true,
       },
       {
         question: '多久可以完成第一個 AI 分身？',
@@ -412,23 +408,12 @@ export const siteContent = {
       },
       {
         question: '課程是一次付費還是訂閱？',
-        answer: '最多24期分期付款( 月繳120 )。沒有月費訂閱。【觀看期限與更新政策待正式確認】',
-        replaceHint: true,
-      },
-      {
-        question: '可以觀看多久？未來是否有更新？',
-        answer: '觀看期限與更新方式將於購買後的取用說明中確認。【待正式條款】',
-        replaceHint: true,
+        answer: '完全免學費，我們是 AI 俱樂部',
       },
       {
         question: '是否保證可以獲利？',
         answer:
           '不保證。課程提供的是 AI 分身製作與內容應用的教育方法；流量、成交與收入會受定位、作品品質、市場與執行影響，成果因人而異。',
-      },
-      {
-        question: '購買後如何取得課程？',
-        answer:
-          '完成付款後，我們會依你結帳時填寫的 Email 寄送課程取用說明。若未收到，請檢查垃圾郵件或聯絡客服。',
       },
     ] as FaqItem[],
   },
@@ -502,7 +487,7 @@ export const siteContent = {
     termsUrl: '',
     privacyLabel: '隱私權政策',
     termsLabel: '使用條款',
-    copyright: `© ${new Date().getFullYear()} AI 分身實戰學院. All rights reserved.`,
+    copyright: `© ${new Date().getFullYear()} AI 俱樂部. All rights reserved.`,
   },
 } as const
 

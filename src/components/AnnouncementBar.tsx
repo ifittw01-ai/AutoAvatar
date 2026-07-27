@@ -15,6 +15,7 @@ export function AnnouncementBar() {
         </p>
         <PurchaseCTA
           label={ctaLabels.announcement}
+          showPrice={false}
           className="min-h-10 px-4 text-sm"
         />
       </div>

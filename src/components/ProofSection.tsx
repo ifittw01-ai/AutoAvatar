@@ -24,7 +24,9 @@ export function ProofSection() {
             >
               <p className="text-sm font-medium text-slate">{item.label}</p>
               <p className="font-display mt-3 text-3xl font-bold text-ink">{item.value}</p>
-              <p className="mt-2 text-sm text-slate">{item.note}</p>
+              {item.note ? (
+                <p className="mt-2 text-sm text-slate">{item.note}</p>
+              ) : null}
             </article>
           ))}
         </div>
@@ -38,7 +40,7 @@ export function ProofSection() {
         </div>
 
         <div className="mt-8">
-          <PurchaseCTA label={ctaLabels.proof} />
+          <PurchaseCTA label={ctaLabels.proof} showPrice={false} />
         </div>
       </div>
     </section>

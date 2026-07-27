@@ -1,6 +1,5 @@
 import { Check } from 'lucide-react'
 import { siteContent } from '../content/siteContent'
-import { formatPrice, paymentConfig } from '../config/payment'
 import { PurchaseCTA } from './ui/PurchaseCTA'
 import { PendingBadge } from './ui/SectionHeader'
 
@@ -29,25 +28,13 @@ export function OfferCard() {
         ))}
       </ul>
 
-      <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
-        <p className="text-sm text-white/50">
-          課程總價值{' '}
-          <span className="line-through">
-            {formatPrice(paymentConfig.originalPrice)}
-          </span>
+      <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6">
+        <p className="font-display text-center text-2xl leading-snug font-extrabold text-white sm:text-3xl md:text-4xl">
+          {pricing.accessNote}
         </p>
-        <p className="mt-1 text-sm font-medium text-accent-soft">今日限定特惠價</p>
-        <p className="font-display mt-1 text-5xl font-extrabold">
-          {formatPrice(paymentConfig.salePrice)}
-        </p>
-        <p className="mt-3 text-sm text-white/65">{pricing.paymentType}</p>
-        <p className="mt-1 text-sm text-white/55">{pricing.accessNote}</p>
       </div>
 
-      <PurchaseCTA fullWidth className="mt-6" label={ctaLabels.offer} />
-      <p className="mt-4 text-center text-xs leading-relaxed text-white/45">
-        {pricing.footnote}
-      </p>
+      <PurchaseCTA fullWidth className="mt-6" label={ctaLabels.offer} showPrice={false} />
     </div>
   )
 }

@@ -26,7 +26,7 @@ export function HeroSection() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <PurchaseCTA label={ctaLabels.hero} />
+            <PurchaseCTA label={ctaLabels.hero} showPrice={false} />
             <p className="text-sm text-white/55">{hero.secondaryNote}</p>
           </div>
 

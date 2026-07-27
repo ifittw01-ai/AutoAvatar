@@ -33,16 +33,10 @@ export function PaymentCancelledPage() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Link
-              to="/checkout"
+              to="/"
               className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-accent px-6 font-semibold text-white hover:bg-accent-deep"
             >
-              返回結帳頁
-            </Link>
-            <Link
-              to="/checkout"
-              className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-line bg-white px-6 font-semibold text-ink hover:border-accent"
-            >
-              重新選擇付款方式
+              返回首頁報名
             </Link>
             <Link
               to="/"

@@ -1,5 +1,6 @@
 import { Star } from 'lucide-react'
 import { siteContent } from '../content/siteContent'
+import { publicAsset } from '../lib/publicAsset'
 import { SectionHeader, PendingBadge } from './ui/SectionHeader'
 import { Disclaimer } from './Disclaimer'
 
@@ -25,7 +26,7 @@ export function TestimonialSection() {
               <div className="mb-4 flex items-center gap-3">
                 {item.photo ? (
                   <img
-                    src={item.photo}
+                    src={publicAsset(item.photo)}
                     alt={`${item.name} 的照片`}
                     className="h-14 w-14 rounded-full object-cover"
                   />
@@ -57,17 +58,6 @@ export function TestimonialSection() {
               <div className="mt-4 space-y-1 border-t border-line pt-4 text-xs text-slate">
                 <p>原本：{item.problem}</p>
                 <p className="text-accent-deep">之後：{item.result}</p>
-                <p>成果：{item.resultMetric}</p>
-                <p className="flex flex-wrap items-center gap-2">
-                  <span>{item.socialHandle}</span>
-                  {item.showVerifiedBadge ? (
-                    <span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-semibold text-accent-deep">
-                      已驗證
-                    </span>
-                  ) : (
-                    <span className="text-[10px] text-slate/70">驗證標籤位置</span>
-                  )}
-                </p>
               </div>
             </article>
           ))}
